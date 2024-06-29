@@ -15,6 +15,11 @@ app.use(express.urlencoded({extended: true}))
 
 
 //  Routes
+app.get('/', (req: Request, res: Response) => {
+    res.status(200).json({message: 'Welcome to the football news API'})
+})
+
+
 app.get('/news', async (req: Request, res: Response) => {
     res.status(200).json({data: await getArticles()})
 })
