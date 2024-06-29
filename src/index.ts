@@ -1,7 +1,7 @@
 import express, { Response, Request } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import { articles } from './articles/articles'
+import { getArticles } from './articles/articles'
 
 
 const app = express()
@@ -15,8 +15,8 @@ app.use(express.urlencoded({extended: true}))
 
 
 //  Routes
-app.get('/news', (req: Request, res: Response) => {
-    res.json(articles)
+app.get('/news', async (req: Request, res: Response) => {
+    res.status(200).json({data: await getArticles()})
 })
 
 // Server
