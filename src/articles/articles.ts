@@ -19,6 +19,7 @@ export async function getArticles() {
             // Store the articles' a tags
             $('a').each((index, element) => {
                 const href = $(element).attr('href')
+                
                 if (href && (href.includes('article') || href.includes('football') || href.includes('sport'))) {
                     
                     let url;

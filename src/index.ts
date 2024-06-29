@@ -20,9 +20,10 @@ app.get('/news', async (req: Request, res: Response) => {
 })
 
 // Server
-app.listen(8001, () => {
-    console.log('server listening on http://localhost:8001')
-})  
+const port = process.env.PORT || 8002
+app.listen(port, () => {
+    console.log(`server listening on http://localhost:${port}`)
+}) 
  
 
 
