@@ -2,6 +2,7 @@ import express, { Response, Request } from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 import { getArticles } from './articles/articles'
+import config from './config'
 
 
 const app = express()
@@ -25,9 +26,9 @@ app.get('/news', async (req: Request, res: Response) => {
 })
 
 // Server
-const port = process.env.PORT || 8002
+const port = config.port || 8002
 app.listen(port, () => {
-    console.log(`server listening on http://localhost:${port}`)
+    console.log(`server listening on http://localhost:${config.port} in ${config.stage} mode`)
 }) 
  
 
